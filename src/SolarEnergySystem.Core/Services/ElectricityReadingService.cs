@@ -24,7 +24,10 @@ namespace SolarEnergySystem.Core.Services
         public ServiceResult<IEnumerable<Report>> GetReport(string panelId)
         {
             IEnumerable<Report> retorno = Enumerable.Empty<Report>();
-            var readings = _readingRepository.GetAll().OrderBy(r => r.ReadingDateTime).Where(r => r.PanelId == panelId);
+            var readings = _readingRepository.GetAll()
+                            .OrderBy(r => r.ReadingDateTime)
+                            .Where(r => r.PanelId == panelId);
+
             for (int i = 0; i < 24; i++)
             {
                 var hourReadings = readings.Where(r => r.ReadingDateTime.Hour == i);
