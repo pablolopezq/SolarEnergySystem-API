@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SolarEnergySystem.Core.DTO;
 using SolarEnergySystem.Core.Enums;
 
 namespace SolarEnergySystem.Core.Entities
 {
-    public class Panel
+    public class Panel : BaseEntity<string>
     {
         public Panel()
         {
@@ -13,8 +14,6 @@ namespace SolarEnergySystem.Core.Entities
         }
 
         public PanelType PanelType { get; set; }
-
-        public string SerialNumber { get; set; }
 
         public double Longitude { get; set; }
 

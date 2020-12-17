@@ -20,7 +20,7 @@ namespace SolarEnergySystem.Infrastructure
                     Longitude = 450.93,
                     MeasuringUnit = MeasuringUnit.KiloWatt,
                     PanelType = PanelType.Regular,
-                    SerialNumber = "A305V5",
+                    Id = "A305V5",
                     ElectricityReadings = new List<ElectricityReading>
                     {
                         new ElectricityReading
@@ -47,7 +47,7 @@ namespace SolarEnergySystem.Infrastructure
                     Longitude = -4607.92,
                     MeasuringUnit = MeasuringUnit.Watt,
                     PanelType = PanelType.Limited,
-                    SerialNumber = "BU492K",
+                    Id = "BU492K",
                     ElectricityReadings = new List<ElectricityReading>
                     {
                         new ElectricityReading
@@ -74,7 +74,7 @@ namespace SolarEnergySystem.Infrastructure
                     Longitude = -245.5,
                     MeasuringUnit = MeasuringUnit.Watt,
                     PanelType = PanelType.Ultimate,
-                    SerialNumber = "CFJ39R",
+                    Id = "CFJ39R",
                     ElectricityReadings = new List<ElectricityReading>
                     {
                         new ElectricityReading

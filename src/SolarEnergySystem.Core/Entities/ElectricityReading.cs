@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SolarEnergySystem.Core.DTO;
 
 namespace SolarEnergySystem.Core.Entities
 {
-    public class ElectricityReading
+    public class ElectricityReading : BaseEntity<int>
     {
-        public int Id { get; set; }
-
         public string PanelId { get; set; }
 
         public Panel Panel { get; set; }

@@ -11,7 +11,7 @@ namespace SolarEnergySystem.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Panel> builder)
         {
-            builder.HasKey(x => x.SerialNumber);
+            builder.HasKey(x => x.Id);
 
             builder.HasMany(x => x.ElectricityReadings)
                 .WithOne(x => x.Panel)
