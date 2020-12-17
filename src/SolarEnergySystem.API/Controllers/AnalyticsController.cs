@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using SolarEnergySystem.Core.DTOs;
+using SolarEnergySystem.Core.Enums;
+using SolarEnergySystem.Core.Interfaces;
 using SolarEnergySystem.Infrastructure;
 
 namespace SolarEnergySystem.API.Controllers
@@ -12,16 +15,21 @@ namespace SolarEnergySystem.API.Controllers
     public class AnalyticsController : ControllerBase
     {
         private readonly SolarEnergySystemDatabaseContext _context;
+        private readonly IElectricityReadingService _electricityReadingService;
 
-        public AnalyticsController(SolarEnergySystemDatabaseContext context)
+        public AnalyticsController(IElectricityReadingService electricityReadingService)
         {
-            _context = context;
+            _electricityReadingService = electricityReadingService;
         }
 
         [Route("{panelId}/analytics")]
-        public IActionResult Get(string panelId)
+        public ActionResult<IEnumerable<Report>> Get(string panelId)
         {
-            return Ok(_context.ElectricityReading.Where(x => x.PanelId == panelId));
+            var serviceResult = _electricityReadingService.GetReport(panelId);
+            if (serviceResult.ResponseCode != ResponseCode.Success)
+                return BadRequest(serviceResult.Error);
+
+            return Ok(serviceResult.Result);
         }
     }
 }
