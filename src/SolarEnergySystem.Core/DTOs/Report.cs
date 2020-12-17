@@ -8,12 +8,12 @@ namespace SolarEnergySystem.Core.DTOs
     {
         public int Hour { get; set; }
 
-        public int KilowattSum { get; set; }
+        public double KilowattSum { get; set; }
 
-        public int KilowattAverage { get; set; }
+        public double KilowattAverage { get; set; }
 
-        public int MaxReading { get; set; }
+        public double MaxReading { get; set; }
 
-        public int MinReading { get; set; }
+        public double MinReading { get; set; }
     }
 }
